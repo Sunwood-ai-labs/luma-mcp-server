@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 背景グラデーション -->
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1">
+        <animate attributeName="stop-color" values="#4A90E2;#9B59B6;#4A90E2" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" style="stop-color:#9B59B6;stop-opacity:1">
+        <animate attributeName="stop-color" values="#9B59B6;#4A90E2;#9B59B6" dur="10s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- テキスト用グラデーション -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1">
+        <animate attributeName="stop-color" values="#ffffff;#00ffff;#ffffff" dur="5s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1">
+        <animate attributeName="stop-color" values="#e0e0e0;#ff69b4;#e0e0e0" dur="5s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+    
+    <!-- テキスト用グローエフェクト -->
+    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- 装飾用グローエフェクト -->
+    <filter id="elementGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景の角丸の長方形 -->
+  <rect x="10" y="10" width="780" height="180" rx="20" ry="20" 
+        fill="url(#headerGradient)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- 動画再生ボタン風の装飾 -->
+  <g transform="translate(100,100)" filter="url(#elementGlow)">
+    <circle r="25" fill="white" opacity="0.2">
+      <animate attributeName="r" values="25;28;25" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <path d="M-10,-15 L15,0 L-10,15 Z" fill="white" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
+    </path>
+  </g>
+
+  <!-- タイトルテキスト - グローエフェクト適用 -->
+  <text x="400" y="100" 
+        font-family="system-ui, -apple-system, sans-serif" 
+        font-size="40" 
+        font-weight="600" 
+        text-anchor="middle"
+        fill="url(#textGradient)"
+        filter="url(#textGlow)">
+    Luma MCP Server
+  </text>
+
+  <!-- サブタイトル - グローエフェクト適用 -->
+  <text x="400" y="140" 
+        font-family="system-ui, -apple-system, sans-serif" 
+        font-size="18" 
+        font-weight="400"
+        text-anchor="middle" 
+        fill="url(#textGradient)"
+        filter="url(#textGlow)">
+    Transform Your Ideas into Dynamic Videos
+  </text>
+
+  <!-- 波紋エフェクト -->
+  <g transform="translate(700,100)" filter="url(#elementGlow)">
+    <circle r="20" fill="none" stroke="white" stroke-width="2" opacity="0.3">
+      <animate attributeName="r" values="20;30;20" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle r="15" fill="none" stroke="white" stroke-width="2" opacity="0.3">
+      <animate attributeName="r" values="15;25;15" dur="2s" begin="0.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" begin="0.5s" repeatCount="indefinite" />
+    </circle>
+    <circle r="10" fill="white" opacity="0.5">
+      <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- 動的なライン装飾 -->
+  <path d="M150,160 L650,160" stroke="white" stroke-width="2" opacity="0.3" filter="url(#elementGlow)">
+    <animate attributeName="d" values="M150,160 L650,160;M200,160 L600,160;M150,160 L650,160" 
+             dur="4s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite" />
+  </path>
+</svg>
