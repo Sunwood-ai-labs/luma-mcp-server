@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/header.svg" alt="Luma MCP Server" width="100%" />
+  <img src="assets/header2.svg" alt="Luma MCP Server" width="100%" />
 
 # Luma MCP Server
 
