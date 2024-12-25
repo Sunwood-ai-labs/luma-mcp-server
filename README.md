@@ -11,12 +11,24 @@ Luma AIのビデオ生成APIをModel Context Protocol (MCP)として提供する
 
 Luma MCP Serverは、Luma AIのビデオ生成機能をMCPサーバーとして提供します。テキストや画像からビデオを生成したり、既存のビデオを拡張・補間したりする機能を提供します。
 
-## 🚀 機能
+## 🏗️ プロジェクト構造
 
-- テキストからビデオ生成
-- 画像からビデオ生成
-- 既存ビデオの拡張
-- 2つのビデオ間の補間
+```
+src/
+├── types/          - 型定義
+│   ├── schemas.ts  - 入力スキーマ
+│   └── types.ts    - 共通型定義
+├── services/       - ビジネスロジック
+├── handlers/       - リクエストハンドラー
+│   └── tool-handlers.ts
+├── clients/        - 外部APIクライアント
+│   └── luma-client.ts
+├── utils/          - ユーティリティ
+│   └── error-handler.ts
+├── config/         - 設定
+│   └── server-config.ts
+└── index.ts        - エントリーポイント
+```
 
 ## 📦 インストール
 
@@ -94,6 +106,32 @@ npm install @sunwood-ai-labs/luma-mcp-server
   }
 }
 ```
+
+## 🔧 開発者向け情報
+
+### アーキテクチャ
+
+- **型定義 (`types/`)**: 
+  - `schemas.ts`: Zodを使用した入力バリデーションスキーマ
+  - `types.ts`: 共通の型定義とインターフェース
+
+- **ハンドラー (`handlers/`)**: 
+  - `tool-handlers.ts`: MCPツールのリクエスト処理
+
+- **クライアント (`clients/`)**: 
+  - `luma-client.ts`: Luma AI APIとの通信を担当
+
+- **ユーティリティ (`utils/`)**: 
+  - `error-handler.ts`: 統一的なエラー処理
+
+- **設定 (`config/`)**: 
+  - `server-config.ts`: サーバー設定の一元管理
+
+### エラーハンドリング
+
+- 統一的なエラー処理システム
+- MCPエラーコードへの適切なマッピング
+- 詳細なエラーメッセージとロギング
 
 ## 📝 注意事項
 
