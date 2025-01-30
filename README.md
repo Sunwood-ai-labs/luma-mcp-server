@@ -7,6 +7,8 @@ Luma AIのビデオ生成APIをModel Context Protocol (MCP)として提供する
 
 </div>
 
+[![smithery badge](https://smithery.ai/badge/@sunwood-ai-labs/luma-mcp-server)](https://smithery.ai/server/@sunwood-ai-labs/luma-mcp-server)
+
 ## 🌟 概要
 
 Luma MCP Serverは、Luma AIのビデオ生成機能をMCPサーバーとして提供します。テキストや画像からビデオを生成したり、既存のビデオを拡張・補間したりする機能を提供します。
@@ -32,6 +34,15 @@ src/
 
 ## 📦 インストール
 
+### Installing via Smithery
+
+To install Luma MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@sunwood-ai-labs/luma-mcp-server):
+
+```bash
+npx -y @smithery/cli install @sunwood-ai-labs/luma-mcp-server --client claude
+```
+
+### Manual Installation
 ```bash
 npm install @sunwood-ai-labs/luma-mcp-server
 ```
